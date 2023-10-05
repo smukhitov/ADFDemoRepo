@@ -1,0 +1,9 @@
+{
+	"name": "shamsDataFactory",
+	"location": "EastUS",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b887e2f0-202e-479d-9755-a9847abf551b",
+		"tenantId": "5b955b44-a483-470a-8c0a-298409402aed"
+	}
+}

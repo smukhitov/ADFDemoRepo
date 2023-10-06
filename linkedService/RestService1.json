@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://www.boredapi.com/api/activity",
+			"url": "https://reqres.in/api/users",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}

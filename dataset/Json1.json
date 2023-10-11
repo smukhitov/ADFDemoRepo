@@ -9,7 +9,7 @@
 			"containerName": {
 				"type": "string"
 			},
-			"fileName": {
+			"folderName": {
 				"type": "string"
 			}
 		},
@@ -17,7 +17,19 @@
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folderName",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().containerName",
+					"type": "Expression"
+				}
 			}
 		},
 		"schema": {}

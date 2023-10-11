@@ -1,0 +1,27 @@
+{
+	"name": "AWSJson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_AzureBlobStorageAWS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folderPath": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().folderPath",
+					"type": "Expression"
+				},
+				"container": "source"
+			}
+		},
+		"schema": {}
+	}
+}

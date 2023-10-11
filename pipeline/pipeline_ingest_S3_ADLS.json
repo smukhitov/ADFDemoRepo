@@ -52,10 +52,9 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Json1",
+						"referenceName": "Json2",
 						"type": "DatasetReference",
 						"parameters": {
-							"containerName": "input",
 							"folderName": {
 								"value": "@concat('landing/',formatDateTime(utcNow(), 'yyyy'), '/', formatDateTime(utcNow(), 'MM'), '/', formatDateTime(utcNow(), 'dd'), '/')",
 								"type": "Expression"

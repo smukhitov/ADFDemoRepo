@@ -11,9 +11,33 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_AzureBlobStorage1'"
 		},
+		"ls_AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_AzureDatabricks1'"
+		},
 		"ls_AzureSqlDatabase1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_AzureSqlDatabase1'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://shamsAKV.vault.azure.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://reqres.in/api/users"
+		},
+		"ls_AzureBlobStorageAWS_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "aws-storage-key"
+		},
+		"ls_AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1008-233030-9oe7yusf"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/a5b3edf1-9d5c-43c2-a33b-0a6bb6d59b92/resourceGroups/learnRG/providers/Microsoft.Storage/storageAccounts/shamsstorage"
 		},
 		"containerUri": {
 			"type": "string",
@@ -45,12 +69,50 @@
 					"ls_AzureBlobStorage1_connectionString": {
 						"value": "[parameters('ls_AzureBlobStorage1_connectionString')]"
 					},
+					"ls_AzureDatabricks1_accessToken": {
+						"value": "[parameters('ls_AzureDatabricks1_accessToken')]"
+					},
 					"ls_AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('ls_AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"ls_AzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+					},
+					"ls_AzureBlobStorageAWS_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('ls_AzureBlobStorageAWS_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "shamsDataFactory_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'shamsDataFactory_ArmTemplate_0')]"
+			]
 		}
 	]
 }

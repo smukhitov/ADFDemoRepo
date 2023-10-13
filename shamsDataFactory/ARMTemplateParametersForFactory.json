@@ -8,8 +8,26 @@
 		"ls_AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"ls_AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"ls_AzureSqlDatabase1_connectionString": {
 			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://shamsAKV.vault.azure.net/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://reqres.in/api/users"
+		},
+		"ls_AzureBlobStorageAWS_properties_typeProperties_connectionString_secretName": {
+			"value": "aws-storage-key"
+		},
+		"ls_AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "1008-233030-9oe7yusf"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/a5b3edf1-9d5c-43c2-a33b-0a6bb6d59b92/resourceGroups/learnRG/providers/Microsoft.Storage/storageAccounts/shamsstorage"
 		}
 	}
 }

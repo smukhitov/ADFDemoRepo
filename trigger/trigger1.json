@@ -1,0 +1,24 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline_ingest_sqldb",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/staging/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/a5b3edf1-9d5c-43c2-a33b-0a6bb6d59b92/resourceGroups/learnRG/providers/Microsoft.Storage/storageAccounts/shamsstorage",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
